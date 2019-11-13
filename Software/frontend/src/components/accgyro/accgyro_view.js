@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios";
 
-class GpsView extends React.Component {
+class AccGyroView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,7 +11,7 @@ class GpsView extends React.Component {
             description: "",
             completed: false
           },
-          gpsList: []
+          accGyroList: []
         };
       }
       
@@ -24,13 +24,13 @@ class GpsView extends React.Component {
     
       refreshList = () => {
         axios
-          .get("http://localhost:8000/api/gps/")
-          .then(res => this.setState({ gpsList: res.data }))
+          .get("http://localhost:8000/api/accgyro/")
+          .then(res => this.setState({ accGyroList: res.data }))
           .catch(err => console.log(err));
       };
     
       renderItems = () => {
-        const newItems = this.state.gpsList;
+        const newItems = this.state.accGyroList;
         
         if(newItems.length === 0){
             return <span>nodata</span>;
@@ -41,18 +41,17 @@ class GpsView extends React.Component {
             return <div>
               <table>
                 <tr>
-                  <td>Longitude: {item.longitude}</td>
+                  <td>AccX: {item.accX}</td>
+                  <td>AccY: {item.accY}</td>
+                  <td>AccZ: {item.accZ}</td>
                 </tr>
                 <tr>
-                  <td>Latitude: {item.latitude}</td>
-                </tr>
-                <tr>
-                  <td>Altitude: {item.altitude}</td>
-                </tr>
-                <tr>
-                  <td>Datetime: {item.date} {item.time}</td>
+                  <td>GyroX: {item.gyroX}</td>
+                  <td>GyroY: {item.gyroY}</td>
+                  <td>GyroZ: {item.gyroZ}</td>
                 </tr>
               </table>
+              <span>Last Recieved: {item.date} {item.time}</span>
             </div>
         }
       };
@@ -65,18 +64,18 @@ class GpsView extends React.Component {
         this.toggle();
         if (item.id) {
           axios
-            .put(`http://localhost:8000/api/gps/${item.id}/`, item)
+            .put(`http://localhost:8000/api/accgyro/${item.id}/`, item)
             .then(res => this.refreshList());
           return;
         }
         axios
-          .post("http://localhost:8000/api/gps/", item)
+          .post("http://localhost:8000/api/accgyro/", item)
           .then(res => this.refreshList());
       };
     
       handleDelete = item => {
         axios
-          .delete(`http://localhost:8000/api/gps/${item.id}`)
+          .delete(`http://localhost:8000/api/accgyro/${item.id}`)
           .then(res => this.refreshList());
       };
     
@@ -98,4 +97,4 @@ class GpsView extends React.Component {
       }
     }
 
-export default GpsView
+export default AccGyroView

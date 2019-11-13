@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets 
-from .serializers import Rover_Base_Station_Serializer, GpsSerializer
-from .models import Rover_Base_Station, Gps
+from .serializers import Rover_Base_Station_Serializer, GpsSerializer, AccGyroSerializer
+from .models import Rover_Base_Station, Gps, AccGyro
 
 class Rover_Base_Station_View(viewsets.ModelViewSet):
     serializer_class = Rover_Base_Station_Serializer 
@@ -10,3 +10,7 @@ class Rover_Base_Station_View(viewsets.ModelViewSet):
 class GpsView(viewsets.ModelViewSet):
     serializer_class = GpsSerializer 
     queryset = Gps.objects.all()
+
+class AccGyroView(viewsets.ModelViewSet):
+    serializer_class = AccGyroSerializer 
+    queryset = AccGyro.objects.all()

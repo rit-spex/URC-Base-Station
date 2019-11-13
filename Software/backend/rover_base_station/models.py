@@ -20,3 +20,17 @@ class Gps(models.Model):
 
     def _str_(self):
         return "lon: " + str(self.longitude) + " lat: " + str(self.latitude) + " alt: " + str(self.altitude) + " timestamp: " + str(self.date) + " " + str (self.time)
+
+# Models Accelorometer and Gyro data
+class AccGyro(models.Model):
+    date = models.DateField(auto_now_add=True, blank=True)
+    time = models.TimeField(auto_now_add=True, blank=True)
+    accX = models.FloatField()
+    accY = models.FloatField()
+    accZ = models.FloatField()
+    gyroX = models.FloatField()
+    gyroY = models.FloatField()
+    gyroZ = models.FloatField()
+
+    def _str_(self):
+        return "accX: " + str(self.accX) + "accY: " + str(self.accY) + "accZ: " + str(self.accZ) + "gyroX: " + str(self.gyroX) + "gyroY: " + str(self.gyroY) + "gyroZ: " + str(self.gyroZ) +  " timestamp: " + str(self.date) + " " + str (self.time)

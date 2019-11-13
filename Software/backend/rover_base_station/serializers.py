@@ -1,7 +1,7 @@
 # todo/serializers.py
 
 from rest_framework import serializers
-from .models import Rover_Base_Station, Gps
+from .models import Rover_Base_Station, Gps, AccGyro
 
 # Specifies the model to work with and the fields we want to be converted to JSON.
 class Rover_Base_Station_Serializer(serializers.ModelSerializer):
@@ -14,3 +14,9 @@ class GpsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gps
         fields = ('date', 'time', 'longitude', 'latitude', 'altitude')
+
+
+class AccGyroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AccGyro
+        fields = ('date', 'time', 'accX', 'accY', 'accZ', 'gyroX', 'gyroY', 'gyroZ')

@@ -22,6 +22,7 @@ from rover_base_station import views
 router = routers.DefaultRouter()
 router.register(r'rover_base_station', views.Rover_Base_Station_View, 'rover_base_station') 
 router.register(r'gps', views.GpsView, 'gps')
+router.register(r'accgyro', views.AccGyroView, 'accgyro')
 
 urlpatterns = [
     path('admin/', admin.site.urls), path('api/', include(router.urls))
