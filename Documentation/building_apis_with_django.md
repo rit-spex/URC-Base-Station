@@ -6,7 +6,7 @@
 ### Make the Model
 * add model in models.py
 
-    `class Todo(models.Model):
+    class Todo(models.Model):
 
       title = models.CharField(max_length=120)
 
@@ -15,36 +15,57 @@
       completed = models.BooleanField(default=False)
 
       def _str_(self):
-      
-        return self.title`
+
+        return self.title
 
 * Add class in admin.py with list_display and register it with the site
-    `from .models import Todo
+
+    from .models import Todo
+
     class TodoAdmin(admin.ModelAdmin):
+
       list_display = ('title', 'description', 'completed')
-    admin.site.register(Todo, TodoAdmin)`
+
+    admin.site.register(Todo, TodoAdmin)
+
 * Run the server and check to see if it is in the admin view (localhost:8000/admin)
-    `$ python manage.py makemigrations rover_base_station
+    $ python manage.py makemigrations rover_base_station
     $ python manage.py migrate rover_base_station
-    $ python manage.py runserver`
+    $ python manage.py runserver
 
 ### Make the API
 * add serializer in serializers.py (don't forget to inport your model)
-    `from .models import Todo
+    
+    from .models import Todo
+
         class TodoSerializer(serializers.ModelSerializer):
+
       class Meta:
+
         model = Todo
-        fields = ('id', 'title', 'description', 'completed')`
+
+        fields = ('id', 'title', 'description', 'completed')
+
 * create the view in views.py (don't forget to inport your model and serializer)
-    `from .models import Todo`
+    
+    from .models import Todo`
+
     class TodoView(viewsets.ModelViewSet):
+
       serializer_class = TodoSerializer
-      queryset = Todo.objects.all()`
+
+      queryset = Todo.objects.all()
+
 * register the view wth the router
-    `router.register(r'todos', views.TodoView, 'todo')`
+
+    router.register(r'todos', views.TodoView, 'todo')
+
 * Run the server and check to see if the api is present(localhost:8000/api...)
-    `$ python manage.py makemigrations rover_base_station
+
+    $ python manage.py makemigrations rover_base_station
+
     $ python manage.py migrate rover_base_station
+
     $ python manage.py runserver`
 
 ## Frontend
@@ -58,7 +79,7 @@
 * make a javascript file named apiname_view.js
 * Write the file (should be extremely similar to gps_view.js)
 
-`import React from 'react'
+import React from 'react'
 import axios from "axios";
 
 class GpsView extends React.Component {
@@ -158,6 +179,6 @@ class GpsView extends React.Component {
       }
     }
 
-export default GpsView`
+export default GpsView
 
 See https://scotch.io/tutorials/build-a-to-do-application-using-django-and-react for more
