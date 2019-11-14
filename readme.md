@@ -6,15 +6,13 @@ The URC Base station... //TODO
 ###### Running
 To run the front end:
 
-`cd frontend`
-
-`yarn start`
+* `cd frontend`
+* `yarn start`
 
 To run the backend:
 
-`cd backend`
-
-`python manage.py runserver`
+* `cd backend`
+* `python manage.py runserver`
 
 ###### Dependencies
 * Python3
