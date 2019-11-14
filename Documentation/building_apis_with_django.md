@@ -29,9 +29,9 @@
       admin.site.register(Todo, TodoAdmin)
 
 * Run the server and check to see if it is in the admin view (localhost:8000/admin)
-      $ python manage.py makemigrations rover_base_station
-      $ python manage.py migrate rover_base_station
-      $ python manage.py runserver
+      `$ python manage.py makemigrations rover_base_station`
+      `$ python manage.py migrate rover_base_station`
+      `$ python manage.py runserver`
 
 ### Make the API
 * add serializer in serializers.py (don't forget to inport your model)
@@ -58,13 +58,13 @@
 
 * register the view wth the router
 
-    router.register(r'todos', views.TodoView, 'todo')
+    `router.register(r'todos', views.TodoView, 'todo')`
 
 * Run the server and check to see if the api is present(localhost:8000/api...)
 
-    $ python manage.py makemigrations rover_base_station
-    $ python manage.py migrate rover_base_station
-    $ python manage.py runserver`
+    `$ python manage.py makemigrations rover_base_station`
+    `$ python manage.py migrate rover_base_station`
+    `$ python manage.py runserver`
 
 ## Frontend
 * go to /frontend
