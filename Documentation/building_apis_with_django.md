@@ -63,7 +63,9 @@
 * Run the server and check to see if the api is present(localhost:8000/api...)
 
     `$ python manage.py makemigrations rover_base_station`
+    
     `$ python manage.py migrate rover_base_station`
+    
     `$ python manage.py runserver`
 
 ## Frontend
