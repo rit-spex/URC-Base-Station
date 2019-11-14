@@ -7,17 +7,22 @@
 * add model in models.py
 
     `class Todo(models.Model):
+
       title = models.CharField(max_length=120)
+
       description = models.TextField()
+
       completed = models.BooleanField(default=False)
+
       def _str_(self):
-        return self.title`s
+      
+        return self.title`
 
 * Add class in admin.py with list_display and register it with the site
     `from .models import Todo
     class TodoAdmin(admin.ModelAdmin):
       list_display = ('title', 'description', 'completed')
-    admin.site.register(Todo, TodoAdmin) # add this`
+    admin.site.register(Todo, TodoAdmin)`
 * Run the server and check to see if it is in the admin view (localhost:8000/admin)
     `$ python manage.py makemigrations rover_base_station
     $ python manage.py migrate rover_base_station
