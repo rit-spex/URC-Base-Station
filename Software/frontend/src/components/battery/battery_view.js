@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from "axios";
 
-class GpsView extends React.Component {
+class BatteryView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          gpsList: []
+          batteryList: []
         };
       }
       
@@ -18,13 +18,13 @@ class GpsView extends React.Component {
     
       refreshList = () => {
         axios
-          .get("http://localhost:8000/api/gps/")
-          .then(res => this.setState({ gpsList: res.data }))
+          .get("http://localhost:8000/api/battery/")
+          .then(res => this.setState({ batteryList: res.data }))
           .catch(err => console.log(err));
       };
     
       renderItems = () => {
-        const newItems = this.state.gpsList;
+        const newItems = this.state.batteryList;
         
         if(newItems.length === 0){
             return <span>nodata</span>;
@@ -35,13 +35,10 @@ class GpsView extends React.Component {
             return <div>
               <table>
                 <tr>
-                  <td>Longitude: {item.longitude}</td>
+                  <td>Voltage: {item.voltage}</td>
                 </tr>
                 <tr>
-                  <td>Latitude: {item.latitude}</td>
-                </tr>
-                <tr>
-                  <td>Altitude: {item.altitude}</td>
+                  <td>Amperage: {item.amperage}</td>
                 </tr>
                 <tr>
                   <td>Datetime: {item.date} {item.time}</td>
@@ -55,18 +52,18 @@ class GpsView extends React.Component {
         this.toggle();
         if (item.id) {
           axios
-            .put(`http://localhost:8000/api/gps/${item.id}/`, item)
+            .put(`http://localhost:8000/api/battery/${item.id}/`, item)
             .then(res => this.refreshList());
           return;
         }
         axios
-          .post("http://localhost:8000/api/gps/", item)
+          .post("http://localhost:8000/api/battery/", item)
           .then(res => this.refreshList());
       };
     
       handleDelete = item => {
         axios
-          .delete(`http://localhost:8000/api/gps/${item.id}`)
+          .delete(`http://localhost:8000/api/battery/${item.id}`)
           .then(res => this.refreshList());
       };
     
@@ -88,4 +85,4 @@ class GpsView extends React.Component {
       }
     }
 
-export default GpsView
+export default BatteryView

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import GpsView from './components/gps/gps_view.js';
 import AccGyroView from './components/accgyro/accgyro_view.js';
+import BatteryView from './components/battery/battery_view.js';
 
 class App extends Component {
   constructor(props) {
@@ -31,6 +32,11 @@ class App extends Component {
           <div className="col-md-6 col-sm-10 mx-auto p-0">
             <div className="card p-3">
               <AccGyroView />
+            </div>
+          </div>
+          <div className="col-md-6 col-sm-10 mx-auto p-0">
+            <div className="card p-3">
+              <BatteryView />
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@
 
         queryset = Todo.objects.all()
 
-* register the view wth the router
+* register the view wth the router in /backend/urls.py
 
     `router.register(r'todos', views.TodoView, 'todo')`
 

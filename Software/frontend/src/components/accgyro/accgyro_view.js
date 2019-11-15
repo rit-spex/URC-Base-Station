@@ -5,12 +5,6 @@ class AccGyroView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          viewCompleted: false,
-          activeItem: {
-            title: "",
-            description: "",
-            completed: false
-          },
           accGyroList: []
         };
       }
@@ -55,10 +49,7 @@ class AccGyroView extends React.Component {
             </div>
         }
       };
-    
-      toggle = () => {
-        this.setState({ modal: !this.state.modal });
-      };
+
     
       handleSubmit = item => {
         this.toggle();
