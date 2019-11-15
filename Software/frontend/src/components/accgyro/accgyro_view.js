@@ -17,6 +17,7 @@ class AccGyroView extends React.Component {
         setInterval(this.refreshList, 2000);
       }
     
+      // This refreshes the list of accgyro items
       refreshList = () => {
         axios
           .get("http://localhost:8000/api/accgyro/")
@@ -24,6 +25,7 @@ class AccGyroView extends React.Component {
           .catch(err => console.log(err));
       };
     
+      // This function returns the div that we want to render
       renderItems = () => {
         const newItems = this.state.accGyroList;
         

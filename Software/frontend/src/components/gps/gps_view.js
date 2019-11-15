@@ -17,6 +17,7 @@ class GpsView extends React.Component {
         setInterval(this.refreshList, 2000);
       }
     
+      // This function refreshes the list of GPS items
       refreshList = () => {
         axios
           .get("http://localhost:8000/api/gps/")
@@ -24,6 +25,7 @@ class GpsView extends React.Component {
           .catch(err => console.log(err));
       };
     
+      // This function returns the div that we want to render
       renderItems = () => {
         const newItems = this.state.gpsList;
         

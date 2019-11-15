@@ -5,7 +5,7 @@ class BatteryView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          batteryList: []
+          batteryList: [],
         };
       }
       
@@ -24,26 +24,48 @@ class BatteryView extends React.Component {
           .then(res => this.setState({ batteryList: res.data }))
           .catch(err => console.log(err));
       };
-    
-      renderItems = () => {
-        const newItems = this.state.batteryList;
-        
-        if(newItems.length === 0){
-            return <span>nodata</span>;
+
+      // Gets the latest
+      getLatest(list){
+
+        if(list.length === 0){
+            return -1;
         }
-        else{
-            const item = newItems[newItems.length - 1];
-            
+        
+        var index = 0;
+        var i = 0;
+        var earliest = list[0];
+
+        for (const item of list.entries()){
+            if(item.time < earliest.time){
+                index = i;
+                earliest = item
+            }
+            i++;
+        }
+        return earliest;
+      };
+    
+      // This function returns the div that we want to render
+      renderItems = () => {
+
+        //const newItems = this.state.batteryList;
+        const latestGPS = this.getLatest(this.state.batteryList);
+        
+        if(latestGPS == -1){
+            return <div><span>no gps data</span></div>;
+        }
+        else{           
             return <div>
               <table>
                 <tr>
-                  <td>Voltage: {item.voltage}</td>
+                  <td>Voltage: {latestGPS.voltage}</td>
                 </tr>
                 <tr>
-                  <td>Amperage: {item.amperage}</td>
+                  <td>Amperage: {latestGPS.amperage}</td>
                 </tr>
                 <tr>
-                  <td>Datetime: {item.date} {item.time}</td>
+                  <td>Datetime: {latestGPS.date} {latestGPS.time}</td>
                 </tr>
               </table>
             </div>
