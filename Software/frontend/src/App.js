@@ -9,15 +9,6 @@ import BatteryView from './components/battery/battery_view.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      viewCompleted: false,
-      activeItem: {
-        title: "",
-        description: "",
-        completed: false
-      },
-      todoList: []
-    };
   }
 
   render() {

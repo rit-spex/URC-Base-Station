@@ -9,6 +9,7 @@ class BatteryView extends React.Component {
         };
       }
       
+      // The componentDidMount() method runs after the component output has been rendered to the DOM.
       componentDidMount() {
         this.refreshList();
 
@@ -16,6 +17,7 @@ class BatteryView extends React.Component {
         setInterval(this.refreshList, 2000);
       }
     
+      // This function refreshes the list of battery items
       refreshList = () => {
         axios
           .get("http://localhost:8000/api/battery/")
@@ -59,21 +61,6 @@ class BatteryView extends React.Component {
         axios
           .post("http://localhost:8000/api/battery/", item)
           .then(res => this.refreshList());
-      };
-    
-      handleDelete = item => {
-        axios
-          .delete(`http://localhost:8000/api/battery/${item.id}`)
-          .then(res => this.refreshList());
-      };
-    
-      createItem = () => {
-        const item = { title: "", description: "", completed: false };
-        this.setState({ activeItem: item, modal: !this.state.modal });
-      };
-    
-      editItem = item => {
-        this.setState({ activeItem: item, modal: !this.state.modal });
       };
     
       render() {

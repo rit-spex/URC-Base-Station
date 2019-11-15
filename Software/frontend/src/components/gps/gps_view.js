@@ -9,6 +9,7 @@ class GpsView extends React.Component {
         };
       }
       
+      // The componentDidMount() method runs after the component output has been rendered to the DOM.
       componentDidMount() {
         this.refreshList();
 
@@ -62,21 +63,6 @@ class GpsView extends React.Component {
         axios
           .post("http://localhost:8000/api/gps/", item)
           .then(res => this.refreshList());
-      };
-    
-      handleDelete = item => {
-        axios
-          .delete(`http://localhost:8000/api/gps/${item.id}`)
-          .then(res => this.refreshList());
-      };
-    
-      createItem = () => {
-        const item = { title: "", description: "", completed: false };
-        this.setState({ activeItem: item, modal: !this.state.modal });
-      };
-    
-      editItem = item => {
-        this.setState({ activeItem: item, modal: !this.state.modal });
       };
     
       render() {
