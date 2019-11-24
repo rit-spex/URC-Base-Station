@@ -1,4 +1,6 @@
-
+html{
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -11,8 +13,38 @@ body {
   background-color: #282c34;
 }
 
-.todo-title {
-  cursor: pointer;
+.root{
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.container_top {
+  border-radius: 15px 15px 0px 0px;
+  margin-top: 20px;
+}
+
+.container_item{
+  background-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ff0000;
+}
+
+.quarter{
+  width: 25%;
+}
+
+.fifth{
+  width: 20%;
+}
+
+.container_bottom {
+  border-radius: 0px 0px 15px 15px;
+  margin-bottom: 20;
+}
+
+.container_exclusive{
+  border-radius: 15px;
 }
 
 .completed-todo {

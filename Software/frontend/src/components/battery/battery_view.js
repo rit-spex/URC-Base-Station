@@ -32,16 +32,12 @@ class BatteryView extends React.Component {
             return -1;
         }
     
-        var index = 0;
-        var i = 0;
         var earliest = list[0];
     
         for (const item of list.entries()){
             if(item.time < earliest.time){
-                index = i;
                 earliest = item
             }
-            i++;
         }
         return earliest;
     };
@@ -49,48 +45,46 @@ class BatteryView extends React.Component {
     // This function returns the div that we want to render
     renderItems = () => {
 
-        //const newItems = this.state.batteryList;
-        const latestGPS = this.getLatest(this.state.batteryList);
+        const latestBattery = this.getLatest(this.state.batteryList);
         
-        if(latestGPS == -1){
-            return <div><span>no gps data</span></div>;
+        if(latestBattery === -1){
+            return <span>no battery data</span>;
         }
         else{           
             return <div>
                 <table>
-                <tr>
-                    <td>Voltage: {latestGPS.voltage}</td>
-                </tr>
-                <tr>
-                    <td>Amperage: {latestGPS.amperage}</td>
-                </tr>
-                <tr>
-                    <td>Datetime: {latestGPS.date} {latestGPS.time}</td>
-                </tr>
+                    <tr>
+                        <td>Voltage: {latestBattery.voltage}</td>
+                    </tr>
+                    <tr>
+                        <td>Amperage: {latestBattery.amperage}</td>
+                    </tr>
                 </table>
-            </div>
+                <span>Last Recieved: {latestBattery.date} {latestBattery.time}</span>
+                </div>
         }
     };
     
     handleSubmit = item => {
-    this.toggle();
-    if (item.id) {
+        this.toggle();
+        if (item.id) {
+            axios
+            .put(`http://localhost:8000/api/battery/${item.id}/`, item)
+            .then(res => this.refreshList());
+            return;
+        }
         axios
-        .put(`http://localhost:8000/api/battery/${item.id}/`, item)
-        .then(res => this.refreshList());
-        return;
-    }
-    axios
-        .post("http://localhost:8000/api/battery/", item)
-        .then(res => this.refreshList());
+            .post("http://localhost:8000/api/battery/", item)
+            .then(res => this.refreshList());
     };
 
+    // Returns jsx to render the item in react
     render() {
-    return (
-        <div>
-            {this.renderItems()}
-        </div>
-    );
+        return (
+            <div>
+                {this.renderItems()}
+            </div>
+        );
     }
 }
 

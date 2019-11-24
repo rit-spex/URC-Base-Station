@@ -7,30 +7,50 @@ import AccGyroView from './components/accgyro/accgyro_view.js';
 import BatteryView from './components/battery/battery_view.js';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
-      <div className="row ">
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
-              <GpsView />
-              
-            </div>
+      <div className="root">
+        <div className="row">
+          <div className="fifth container_item container_top">
+            <GpsView />
           </div>
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
-              <AccGyroView />
-            </div>
+          <div className="fifth container_item container_top">
+            <GpsView />
           </div>
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
-              <BatteryView />
-            </div>
+          <div className="fifth container_item container_top">
+            <GpsView />
+          </div>
+          <div className="fifth container_item container_top">
+            <GpsView />
           </div>
         </div>
+        <div className="row">
+          <div className="quarter container_item">
+            <AccGyroView />
+          </div>
+          <div className="quarter container_item">
+            <AccGyroView />
+          </div>
+          <div className="quarter container_item">
+            <AccGyroView />
+          </div>
+          <div className="quarter container_item">
+            <AccGyroView />
+          </div>
+        </div>
+        <div className="row">
+          <div className="container_item container_bottom">
+            <BatteryView />
+          </div>
+          <div className="container_item container_top">
+            <GpsView />
+          </div>
+          <div className="container_item container_top">
+            <GpsView />
+          </div>
+        </div>
+      </div>
     );
   }
 }
