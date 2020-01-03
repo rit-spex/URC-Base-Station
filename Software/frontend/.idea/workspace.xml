@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bec8cd96-bfe0-4a31-ac6b-9b8daa4d86ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/accgyro/accgyro_view.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/accgyro/accgyro_view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/battery/battery_view.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/battery/battery_view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gps/gps_view.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gps/gps_view.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1573957532814</updated>
       <workItem from="1573957543379" duration="26000" />
+      <workItem from="1578019987100" duration="36000" />
     </task>
     <servers />
   </component>
@@ -58,7 +58,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

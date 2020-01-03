@@ -18,16 +18,17 @@ body {
   margin-right: 16px;
 }
 
-.container_top {
-  border-radius: 15px 15px 0px 0px;
-  margin-top: 20px;
-}
-
 .container_item{
-  background-color: #ffffff;
+  background-color: #fff;
   border-style: solid;
   border-width: 1px;
-  border-color: #ff0000;
+  border-color: #151515;
+  padding: 10px;
+}
+
+.container_exclusive{
+  border-radius: 15px;
+  margin: 5px;
 }
 
 .quarter{
@@ -38,28 +39,21 @@ body {
   width: 20%;
 }
 
-.container_bottom {
-  border-radius: 0px 0px 15px 15px;
-  margin-bottom: 20;
+.videocontainer{
+  width: 60%;
+  min-width: 60%;
+  max-width: 60%;
 }
 
-.container_exclusive{
-  border-radius: 15px;
-}
-
-.completed-todo {
-  text-decoration: line-through;
-}
-
-.tab-list > span {
-  padding: 5px 8px;
-  border: 1px solid #282c34;
-  border-radius: 10px;
-  margin-right: 5px;
-  cursor: pointer;
-}
-
-.tab-list > span.active {
-  background-color: #282c34;
-  color: #ffffff;
+.navbar{
+  padding-top: 12px;
+  background-color: #535353;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #151515;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  color: #fff;
+  font-size: 150%;
 }
