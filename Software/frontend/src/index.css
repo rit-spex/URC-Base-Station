@@ -43,6 +43,7 @@ body {
   width: 60%;
   min-width: 60%;
   max-width: 60%;
+  align-content: center;
 }
 
 .navbar{
@@ -56,4 +57,14 @@ body {
   max-width: 100%;
   color: #fff;
   font-size: 150%;
+}
+
+.rovervideo{
+  max-width: 600;
+  max-height: 400;
+  min-width: 600;
+  min-height: 400;
+  border-radius: 2px;
+  border-width: 5px;
+  color: #ff0000;
 }

@@ -24,7 +24,9 @@ router.register(r'rover_base_station', views.Rover_Base_Station_View, 'rover_bas
 router.register(r'gps', views.GpsView, 'gps')
 router.register(r'accgyro', views.AccGyroView, 'accgyro')
 router.register(r'battery', views.BatteryView, 'battery')
+router.register(r'video', views.VideoView, 'video')
 
 urlpatterns = [
-    path('admin/', admin.site.urls), path('api/', include(router.urls))
+    path('admin/', admin.site.urls), 
+    path('api/', include(router.urls)),
 ]

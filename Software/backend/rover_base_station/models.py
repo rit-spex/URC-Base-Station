@@ -42,3 +42,14 @@ class Battery(models.Model):
 
     def _str_(self):
         return "voltage: " + str(self.voltage) + " amperage: " + str(self.amperage) + " timestamp: " + str(self.date) + " " + str (self.time)
+
+
+# Model for Video data
+class Video(models.Model):
+    date = models.DateField(auto_now_add=True, blank=True)
+    time = models.TimeField(auto_now_add=True, blank=True)
+    img = models.TextField(blank=True)
+    #models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)
+
+    def _str_(self):
+        return "video timestamp: " + str(self.date) + " " + str (self.time)

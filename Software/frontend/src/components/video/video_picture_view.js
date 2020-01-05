@@ -46,21 +46,14 @@ class VideoPictureView extends React.Component {
     renderItems = () => {
 
         const latestVideo = this.getLatest(this.state.videoList);
-        
+
         if(latestVideo === -1){
             return <span>no video data</span>;
         }
         else{           
             return <div>
-                <table>
-                    <tr>
-                        <td>Voltage: {latestVideo.voltage}</td>
-                    </tr>
-                    <tr>
-                        <td>Amperage: {latestVideo.amperage}</td>
-                    </tr>
-                </table>
-                <span>Last Recieved: {latestVideo.date} {latestVideo.time}</span>
+                <img className="rovervideo" alt="" src={latestVideo.img} />
+                <p>Last Recieved: {latestVideo.date} {latestVideo.time}</p>
                 </div>
         }
     };
