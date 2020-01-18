@@ -23,8 +23,10 @@ To run the backend:
 * npm
   * create-react-app
 * yarn 
-  * bootstrap 
-  * reactstrap
+  * axios 
+  * react
+  * react-dom
+  * react-scripts
 
 ###### Repository Contents
 * ***/Documents*** - General project documents
