@@ -27,6 +27,7 @@ To run the backend:
   * react
   * react-dom
   * react-scripts
+  * bootstrap
 
 ###### Repository Contents
 * ***/Documents*** - General project documents
