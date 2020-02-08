@@ -11,10 +11,21 @@ class BatteryView extends React.Component {
       
     // The componentDidMount() method runs after the component output has been rendered to the DOM.
     componentDidMount() {
-    this.refreshList();
+        this.refreshList();
 
-    // set auto refresh to 2000 ms
-    setInterval(this.refreshList, 2000);
+        // set auto refresh to 2000 ms
+        setInterval(this.refreshList, 2000);
+
+        setInterval(this.refreshBattery, 2000);
+    }
+
+    refreshBattery() {
+        var canvas = document.getElementById("canvas");
+        if (canvas) {
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(0,0,150,75);
+        }
     }
 
     // This function refreshes the list of battery items
@@ -24,6 +35,12 @@ class BatteryView extends React.Component {
         .then(res => this.setState({ batteryList: res.data }))
         .catch(err => console.log(err));
     };
+
+    buildBattery(per){
+        return <div>
+                <canvas id="canvas" width={100} height={40} />
+            </div>
+    }
     
     // Gets the latest
     getLatest(list){
@@ -46,12 +63,14 @@ class BatteryView extends React.Component {
     renderItems = () => {
 
         const latestBattery = this.getLatest(this.state.batteryList);
+        const bat = this.buildBattery(50);
         
         if(latestBattery === -1){
             return <span>no battery data</span>;
         }
         else{           
             return <div>
+                {bat}
                 <table>
                     <tr>
                         <td>Voltage: {latestBattery.voltage}</td>

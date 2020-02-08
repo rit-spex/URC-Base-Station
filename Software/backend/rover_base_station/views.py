@@ -5,12 +5,8 @@ from rest_framework import status
 
 from django.shortcuts import render
 from rest_framework import viewsets 
-from .serializers import Rover_Base_Station_Serializer, GpsSerializer, AccGyroSerializer, BatterySerializer, VideoSerializer
-from .models import Rover_Base_Station, Gps, AccGyro, Battery, Video
-
-class Rover_Base_Station_View(viewsets.ModelViewSet):
-    serializer_class = Rover_Base_Station_Serializer 
-    queryset = Rover_Base_Station.objects.all()
+from .serializers import  GpsSerializer, AccGyroSerializer, BatterySerializer, LidarSerializer, VideoSerializer
+from .models import Gps, AccGyro, Battery, Lidar, Video
 
 class GpsView(viewsets.ModelViewSet):
     serializer_class = GpsSerializer 
@@ -23,6 +19,10 @@ class AccGyroView(viewsets.ModelViewSet):
 class BatteryView(viewsets.ModelViewSet):
     serializer_class = BatterySerializer 
     queryset = Battery.objects.all()
+
+class LidarView(viewsets.ModelViewSet):
+    serializer_class = LidarSerializer 
+    queryset = Lidar.objects.all()
 
 class VideoView(viewsets.ModelViewSet):
     serializer_class = VideoSerializer

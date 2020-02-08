@@ -26,6 +26,10 @@ body {
   padding: 10px;
 }
 
+.container_centered{
+  text-align: center;
+}
+
 .container_exclusive{
   border-radius: 15px;
   margin: 5px;
@@ -64,6 +68,14 @@ body {
   max-height: 400;
   min-width: 600;
   min-height: 400;
+  border-radius: 2px;
+  border-width: 5px;
+  color: #ff0000;
+}
+
+.lidarpicture{
+  width: 320px;
+  height: 240px;
   border-radius: 2px;
   border-width: 5px;
   color: #ff0000;

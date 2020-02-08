@@ -52,7 +52,9 @@ class VideoPictureView extends React.Component {
         }
         else{           
             return <div>
-                <img className="rovervideo" alt="" src={latestVideo.img} />
+                <div className="container_centered">
+                    <img className="rovervideo" alt="" src={latestVideo.img} />
+                </div>
                 <p>Last Recieved: {latestVideo.date} {latestVideo.time}</p>
                 </div>
         }

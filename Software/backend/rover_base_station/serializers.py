@@ -1,11 +1,5 @@
 from rest_framework import serializers
-from .models import Rover_Base_Station, Gps, AccGyro, Battery, Video
-
-# Specifies the model to work with and the fields we want to be converted to JSON.
-class Rover_Base_Station_Serializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rover_Base_Station
-        fields = ('id', 'title', 'description', 'completed')
+from .models import Gps, AccGyro, Battery, Lidar, Video
 
 # Specifies the GPS model to work with and the fields we want to be converted to JSON.
 class GpsSerializer(serializers.ModelSerializer):
@@ -24,6 +18,12 @@ class BatterySerializer(serializers.ModelSerializer):
     class Meta:
         model = Battery
         fields = ('date', 'time', 'voltage', 'amperage')
+
+# Specifies the Lidarmodel to work with and the fields we want to be converted to JSON.
+class LidarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lidar
+        fields = ('date', 'time', 'img')
 
 # Specifies the Video model to work with and the fields we want to be converted to JSON.
 class VideoSerializer(serializers.ModelSerializer):
