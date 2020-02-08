@@ -30,16 +30,10 @@ class VideoPictureView extends React.Component {
 
         if(list.length === 0){
             return -1;
-        }
-    
-        var earliest = list[0];
-    
-        for (const item of list.entries()){
-            if(item.time < earliest.time){
-                earliest = item
-            }
-        }
-        return earliest;
+          }
+          else{
+            return list.reverse()[0];
+          }
     };
 
     // This function returns the div that we want to render

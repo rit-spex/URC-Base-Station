@@ -30,17 +30,28 @@ class GpsView extends React.Component {
   getLatest(list){
 
     if(list.length === 0){
+      return -1;
+    }
+    else{
+      return list.reverse()[0];
+    }
+
+    /*
+
+    if(list.length === 0){
         return -1;
     }
 
-    var earliest = list[0];
+    var latest = list[0];
 
     for (const item of list.entries()){
-        if(item.time < earliest.time){
-            earliest = item
-        }
+      if(item.date >= latest.date & item.time >= latest.time){
+        latest = item
+      }
+
     }
-    return earliest;
+    return latest;
+    */
 };
 
   // This function returns the div that we want to render

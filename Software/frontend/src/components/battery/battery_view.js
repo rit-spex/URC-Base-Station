@@ -19,12 +19,57 @@ class BatteryView extends React.Component {
         setInterval(this.refreshBattery, 2000);
     }
 
-    refreshBattery() {
+    refreshBattery = () => {
         var canvas = document.getElementById("canvas");
+
         if (canvas) {
             var ctx = canvas.getContext("2d");
-            ctx.fillStyle = "#FF0000";
-            ctx.fillRect(0,0,150,75);
+            var percent = 0;
+            
+            const latestBattery = this.getLatest(this.state.batteryList);
+
+            if ( latestBattery === -1){
+                console.log("No Battery Data")
+                percent = 0;
+            }
+            else{
+                if(latestBattery.voltage > 16.8){
+                    percent = 100;
+                }
+                else if(latestBattery.voltage > 16.52){
+                    percent = 90;
+                }
+                else if(latestBattery.voltage > 16.24){
+                    percent = 80;
+                }
+                else if(latestBattery.voltage > 15.96){
+                    percent = 70;
+                }
+                else if(latestBattery.voltage > 15.68){
+                    percent = 60;
+                }
+                else if(latestBattery.voltage > 15.4){
+                    percent = 50;
+                }
+                else if(latestBattery.voltage > 15.12){
+                    percent = 40;
+                }
+                else if(latestBattery.voltage > 14.84){
+                    percent = 30;
+                }
+                else if(latestBattery.voltage > 14.56){
+                    percent = 20;
+                }
+                else if(latestBattery.voltage > 15.12){
+                    percent = 10;
+                }
+                else{
+                    percent = 0;
+                }
+            }
+            console.log("Voltage " + latestBattery.voltage)
+            ctx.fillStyle = "#00FF00";
+            ctx.fillRect(0,0,150*percent,75);
         }
     }
 
@@ -47,37 +92,33 @@ class BatteryView extends React.Component {
 
         if(list.length === 0){
             return -1;
-        }
-    
-        var earliest = list[0];
-    
-        for (const item of list.entries()){
-            if(item.time < earliest.time){
-                earliest = item
-            }
-        }
-        return earliest;
+          }
+          else{
+            return list.reverse()[0];
+          }
     };
 
     // This function returns the div that we want to render
     renderItems = () => {
 
         const latestBattery = this.getLatest(this.state.batteryList);
-        const bat = this.buildBattery(50);
         
         if(latestBattery === -1){
             return <span>no battery data</span>;
         }
-        else{           
+        else{     
+            const bat = this.buildBattery(50);      
             return <div>
-                {bat}
                 <table>
-                    <tr>
-                        <td>Voltage: {latestBattery.voltage}</td>
-                    </tr>
-                    <tr>
-                        <td>Amperage: {latestBattery.amperage}</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Voltage: {latestBattery.voltage} </td>
+                            <td> Amperage: {latestBattery.amperage} </td>
+                            <td>
+                                {bat}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <span>Last Recieved: {latestBattery.date} {latestBattery.time}</span>
                 </div>

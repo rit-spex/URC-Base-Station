@@ -30,17 +30,11 @@ class LidarView extends React.Component {
   getLatest(list){
 
     if(list.length === 0){
-        return -1;
+      return -1;
     }
-
-    var earliest = list[0];
-
-    for (const item of list.entries()){
-        if(item.time < earliest.time){
-            earliest = item
-        }
+    else{
+      return list.reverse()[0];
     }
-    return earliest;
   };
 
   // This function returns the div that we want to render
@@ -55,7 +49,7 @@ class LidarView extends React.Component {
           <div className="container_centered">
             <img className="lidarpicture" alt="" src={latestLidar.img} />
           </div>
-          <p>Last Recieved: {latestLidar.date} {latestLidar.time}</p>
+          <span>Last Recieved: {latestLidar.date} {latestLidar.time}</span>
         </div>
     }
   };

@@ -30,17 +30,11 @@ class AccGyroView extends React.Component {
   getLatest(list){
 
     if(list.length === 0){
-        return -1;
+      return -1;
     }
-
-    var earliest = list[0];
-
-    for (const item of list.entries()){
-        if(item.time < earliest.time){
-            earliest = item
-        }
+    else{
+      return list.reverse()[0];
     }
-    return earliest;
   };
 
   // This function returns the div that we want to render
