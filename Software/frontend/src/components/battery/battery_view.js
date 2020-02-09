@@ -111,7 +111,7 @@ class BatteryView extends React.Component {
 
     buildBattery(per){
         return <div>
-                <canvas className="batterycanvas" id="canvas" width={100} height={40}/>
+                <canvas id="canvas" width={100} height={40}/>
             </div>
     }
     
