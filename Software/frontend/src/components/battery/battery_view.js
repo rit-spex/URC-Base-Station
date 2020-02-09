@@ -30,7 +30,6 @@ class BatteryView extends React.Component {
 
             if ( latestBattery === -1){
                 console.log("No Battery Data")
-                percent = 0;
             }
             else{
                 if(latestBattery.voltage > 16.8){
@@ -67,9 +66,38 @@ class BatteryView extends React.Component {
                     percent = 0;
                 }
             }
-            console.log("Voltage " + latestBattery.voltage)
-            ctx.fillStyle = "#00FF00";
-            ctx.fillRect(0,0,150*percent,75);
+            console.log(percent)
+            ctx.moveTo(1,1);
+            ctx.lineWidth = 2;
+            ctx.lineTo(95,1);
+            ctx.stroke();
+            ctx.lineTo(95,39);
+            ctx.stroke();
+            ctx.lineTo(1,39);
+            ctx.stroke();
+            ctx.lineTo(1,1);
+            ctx.stroke();
+            ctx.moveTo(95,10);
+            ctx.lineTo(99,10);
+            ctx.stroke()
+            ctx.lineTo(99,30);
+            ctx.stroke()
+            ctx.lineTo(95,30)
+            ctx.stroke()
+            ctx.fillStyle = '#787878';
+            ctx.fillRect(96, 11, 3, 19)
+            ctx.stroke()
+            if(percent >= 70){
+                ctx.fillStyle = '#009900';
+            }
+            else if(percent >= 50){
+                ctx.fillStyle = 'yellow';
+            }
+            else{
+                ctx.fillStyle = '#ce1126';
+            }
+            ctx.fillRect(2,2,percent, 36);
+            ctx.stroke()
         }
     }
 
@@ -83,7 +111,7 @@ class BatteryView extends React.Component {
 
     buildBattery(per){
         return <div>
-                <canvas id="canvas" width={100} height={40} />
+                <canvas className="batterycanvas" id="canvas" width={100} height={40}/>
             </div>
     }
     
