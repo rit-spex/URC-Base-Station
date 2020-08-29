@@ -17,12 +17,12 @@ To run the backend:
 ###### Dependencies
 * Python3
   * django
-  * jangorestframework 
+  * djangorestframework 
   * django-cors-headers
-* Nodejs (>10.0.0)
+* [Nodejs (>10.0.0)](https://nodejs.org/en/download/)
 * npm
   * create-react-app
-* yarn 
+* [yarn](https://classic.yarnpkg.com/en/docs/install/)
   * axios 
   * react
   * react-dom
