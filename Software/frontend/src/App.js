@@ -42,13 +42,13 @@ class App extends Component {
       <div>
         <div className="row">
           <div className="navbar">
-            <button onClick={() => this.setViewId(0)}>  
+            <button type="button" className="navbar_button" onClick={() => this.setViewId(0)}>  
               Rover View
             </button>
-            <button onClick={() => this.setViewId(1)}>  
+            <button className="navbar_button" onClick={() => this.setViewId(1)}>  
               Arm View
             </button>
-            <button onClick={() => this.setViewId(2)}>  
+            <button className="navbar_button" onClick={() => this.setViewId(2)}>  
               Science View
             </button>
           </div>
