@@ -2,47 +2,50 @@
 
 import React, { Component } from "react";
 
-import GpsView from './components/gps/gps_view.js';
-import AccGyroView from './components/accgyro/accgyro_view.js';
-import BatteryView from './components/battery/battery_view.js';
-import LidarView from './components/lidar/lidar_view.js';
-import VideoPictureView from './components/video/video_picture_view.js';
+import RoverHomepageView from './components/rover_homepage/rover_homepage_view.js';
+import ArmHomepageView from './components/arm_homepage/arm_homepage_view.js';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      viewid: 0
+    };
+  }
+
+  setView(id){
+    this.setState({viewid:id})
+  }
+
+  renderView(){
+    if (this.state.viewid == 0){
+      return (<RoverHomepageView />);
+    }
+    else if (this.state.viewid == 1){
+      return (<ArmHomepageView />);
+    }
+    else {
+      return (<div className="error_message"><p>CANNOT RENDER VIEWID: {this.state.viewid}</p></div>)
+    }
+  }
 
   render() {
     return (
       <div className="root">
-        
         <div className="row">
           <div className="navbar">
-            <p>navbar</p>
+            <button variant="primary" onClick={() => this.setState({viewid:0})}>  
+              Rover View
+            </button>
+            <button variant="primary" onClick={() => this.setView(1)}>  
+              Arm View
+            </button>
+            <button variant="primary" onClick={() => this.setView(2)}>  
+              Science View
+            </button>
           </div>
         </div>
-
-        <div className="row">
-          <div className="fifth">
-            <div className="container_item container_exclusive">
-              <GpsView />
-            </div>
-          </div>
-          <div className="videocontainter">
-            <div className="container_item container_exclusive">
-              <VideoPictureView />
-            </div>  
-          </div>
-          <div className="fifth">
-            <div className="container_item container_exclusive">
-              <AccGyroView />
-            </div>
-            <div className="container_item container_exclusive">
-              <BatteryView />
-            </div>
-            <div className="container_item container_exclusive">
-              <LidarView />
-            </div>
-          </div>  
-        </div>
+        {this.renderView()}
       </div>
     );
   }
