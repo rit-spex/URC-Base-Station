@@ -1,6 +1,6 @@
 import React from 'react'
 
-class RoverHomepageView extends React.Component {
+class ArmHomepageView extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -26,4 +26,4 @@ class RoverHomepageView extends React.Component {
     }
 }
 
-export default RoverHomepageView
+export default ArmHomepageView

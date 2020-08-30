@@ -34,7 +34,7 @@ class App extends Component {
       <div className="root">
         <div className="row">
           <div className="navbar">
-            <button variant="primary" onClick={() => this.setState({viewid:0})}>  
+            <button variant="primary" onClick={() => this.setView(0)}>  
               Rover View
             </button>
             <button variant="primary" onClick={() => this.setView(1)}>  
