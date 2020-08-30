@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ArmHomepageView extends React.Component {
+class ScienceHomepageView extends React.Component {
 
   // constructor
   constructor(props) {
@@ -10,9 +10,9 @@ class ArmHomepageView extends React.Component {
   // This function returns the div that we want to render
   renderItems = () => {
     return (
-      <div className="arm_homepage_view"> 
+      <div className="science_homepage_view"> 
         <div className="container_item container_exclusive">
-          <p>TODO: make a arm view</p>
+          <p>TODO: make a science view</p>
         </div>
       </div>
     )
@@ -28,4 +28,4 @@ class ArmHomepageView extends React.Component {
   }
 }
 
-export default ArmHomepageView
+export default ScienceHomepageView

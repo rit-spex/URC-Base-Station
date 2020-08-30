@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import RoverHomepageView from './components/rover_homepage/rover_homepage_view.js';
 import ArmHomepageView from './components/arm_homepage/arm_homepage_view.js';
+import ScienceHomepageView from './components/science_homepage/science_homepage_view.js';
 
 class App extends Component {
   // constructor
@@ -26,6 +27,9 @@ class App extends Component {
     }
     else if (this.state.viewid == 1){
       return (<ArmHomepageView />);
+    }
+    else if (this.state.viewid == 2){
+      return (<ScienceHomepageView />);
     }
     else {
       return (<div className="error_message"><p>CANNOT RENDER VIEWID: {this.state.viewid}</p></div>)
