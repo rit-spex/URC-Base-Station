@@ -6,6 +6,7 @@ import RoverHomepageView from './components/rover_homepage/rover_homepage_view.j
 import ArmHomepageView from './components/arm_homepage/arm_homepage_view.js';
 
 class App extends Component {
+  // constructor
   constructor(props) {
     super(props);
     this.state = {
@@ -13,10 +14,12 @@ class App extends Component {
     };
   }
 
-  setView(id){
+  // sets viewid
+  setViewId(id){
     this.setState({viewid:id})
   }
 
+  // returns homepage view based in viewid
   renderView(){
     if (this.state.viewid == 0){
       return (<RoverHomepageView />);
@@ -29,23 +32,33 @@ class App extends Component {
     }
   }
 
-  render() {
+  // This function returns the div that we want to render
+  renderItems = () => {
     return (
-      <div className="root">
+      <div>
         <div className="row">
           <div className="navbar">
-            <button variant="primary" onClick={() => this.setView(0)}>  
+            <button onClick={() => this.setViewId(0)}>  
               Rover View
             </button>
-            <button variant="primary" onClick={() => this.setView(1)}>  
+            <button onClick={() => this.setViewId(1)}>  
               Arm View
             </button>
-            <button variant="primary" onClick={() => this.setView(2)}>  
+            <button onClick={() => this.setViewId(2)}>  
               Science View
             </button>
           </div>
         </div>
         {this.renderView()}
+      </div>
+    );
+  };
+
+  // Returns jsx to render the item in react
+  render() {
+    return (
+      <div className="root">
+        {this.renderItems()}
       </div>
     );
   }

@@ -7,6 +7,8 @@ import LidarView from '../lidar/lidar_view.js';
 import VideoPictureView from '../video/video_picture_view.js';
 
 class RoverHomepageView extends React.Component {
+
+  // constructor
   constructor(props) {
     super(props);
   }
@@ -14,7 +16,7 @@ class RoverHomepageView extends React.Component {
   // This function returns the div that we want to render
   renderItems = () => {
     return (
-        <div className="rover_homepage_view">
+      <div className="rover_homepage_view">
     
           <div className="row">
             <div className="fifth">
@@ -41,16 +43,16 @@ class RoverHomepageView extends React.Component {
           </div>
         </div>
     )
-    };
+  };
 
-    // Returns jsx to render the item in react
-    render() {
-        return (
-            <div>
-                {this.renderItems()}
-            </div>
-        );
-    }
+  // Returns jsx to render the item in react
+  render() {
+    return (
+      <div>
+        {this.renderItems()}
+      </div>
+    );
+  }
 }
 
 export default RoverHomepageView
