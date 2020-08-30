@@ -50,9 +50,6 @@ body {
 }
 
 .videocontainer{
-  width: 60%;
-  min-width: 60%;
-  max-width: 60%;
   align-content: center;
 }
 
@@ -95,4 +92,19 @@ body {
   border-radius: 2px;
   border-width: 5px;
   color: #ff0000;
+}
+
+.rover_data_feed{
+  background-color: #363636;
+  color: #fff;
+  width: 20%;
+  min-width: 20%;
+  max-width: 20%;
+  height: 100%;
+}
+
+.rover_data_views{
+  width: 80%;
+  min-width: 80%;
+  max-width: 80%;
 }
