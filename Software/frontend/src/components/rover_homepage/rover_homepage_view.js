@@ -8,11 +8,6 @@ import VideoPictureView from '../video/video_picture_view.js';
 
 class RoverHomepageView extends React.Component {
 
-  // constructor
-  constructor(props) {
-    super(props);
-  }
-
   // This function returns the div that we want to render
   renderItems = () => {
     return (

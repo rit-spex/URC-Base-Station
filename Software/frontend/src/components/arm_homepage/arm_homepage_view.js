@@ -2,11 +2,6 @@ import React from 'react'
 
 class ArmHomepageView extends React.Component {
 
-  // constructor
-  constructor(props) {
-    super(props);
-  }
-
   // This function returns the div that we want to render
   renderItems = () => {
     return (

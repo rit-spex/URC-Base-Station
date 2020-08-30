@@ -22,13 +22,13 @@ class App extends Component {
 
   // returns homepage view based in viewid
   renderView(){
-    if (this.state.viewid == 0){
+    if (this.state.viewid === 0){
       return (<RoverHomepageView />);
     }
-    else if (this.state.viewid == 1){
+    else if (this.state.viewid === 1){
       return (<ArmHomepageView />);
     }
-    else if (this.state.viewid == 2){
+    else if (this.state.viewid === 2){
       return (<ScienceHomepageView />);
     }
     else {
