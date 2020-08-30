@@ -51,6 +51,9 @@ body {
 
 .videocontainer{
   align-content: center;
+  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
 }
 
 .navbar{
