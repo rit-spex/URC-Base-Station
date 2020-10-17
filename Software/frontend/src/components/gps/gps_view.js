@@ -89,17 +89,9 @@ buildOpenStreetMap(){
     }
     else{
         return <div>
-          <table>
-            <tr>
-              <td>Longitude: {latestGPS.longitude}</td>
-            </tr>
-            <tr>
-              <td>Latitude: {latestGPS.latitude}</td>
-            </tr>
-            <tr>
-              <td>Altitude: {latestGPS.altitude}</td>
-            </tr>
-          </table>
+          <h3>Longitude: {latestGPS.longitude}</h3>
+          <h3>Latitude: {latestGPS.latitude}</h3>
+          <h3>Altitude: {latestGPS.altitude}</h3>
           <span>Last Recieved: {latestGPS.date} {latestGPS.time}</span>
           </div>
     }

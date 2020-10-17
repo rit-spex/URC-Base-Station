@@ -46,18 +46,13 @@ class AccGyroView extends React.Component {
     }
     else{
         return <div>
-          <table>
-          <tr>
-            <td>AccX: {latestAccGyro.accX}</td>
-            <td>AccY: {latestAccGyro.accY}</td>
-            <td>AccZ: {latestAccGyro.accZ}</td>
-          </tr>
-          <tr>
-            <td>GyroX: {latestAccGyro.gyroX}</td>
-            <td>GyroY: {latestAccGyro.gyroY}</td>
-            <td>GyroZ: {latestAccGyro.gyroZ}</td>
-          </tr>
-        </table>
+          <h3>AccX: {latestAccGyro.accX}</h3>
+          <h3>AccY: {latestAccGyro.accY}</h3>
+          <h3>AccZ: {latestAccGyro.accZ}</h3>
+          <hr></hr>
+          <h3>GyroX: {latestAccGyro.gyroX}</h3>
+          <h3>GyroY: {latestAccGyro.gyroY}</h3>
+          <h3>GyroZ: {latestAccGyro.gyroZ}</h3>
         <span>Last Recieved: {latestAccGyro.date} {latestAccGyro.time}</span>
         </div>
     }

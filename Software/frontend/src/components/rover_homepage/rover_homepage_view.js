@@ -8,85 +8,48 @@ import VideoPictureView from '../video/video_picture_view.js';
 
 class RoverHomepageView extends React.Component {
 
-  render_data_field(){
-    return (<p>rover data feed</p>);
-  }
-
   render_data_views(){
     return (
-      <div className="row">
-        <div className="quarter">
-          <div className="container_item container_exclusive">
-            <GpsView />
-          </div>
+      <div className="dataOverlay">
+        <div className="container_item container_exclusive gpsViewData">
+          <GpsView />
         </div>
-        <div className="videocontainter">
-          <div className="container_item container_exclusive">
+        <div className="videocontainer">
+          <div className="container_item container_exclusive videoData">
             <VideoPictureView />
           </div>  
         </div>
-        <div className="quarter">
-          <div className="container_item container_exclusive">
-            <AccGyroView />
-          </div>
-          <div className="container_item container_exclusive">
-            <BatteryView />
-          </div>
-          <div className="container_item container_exclusive">
-            <LidarView />
-          </div>
-        </div>  
+        <div className="container_item container_exclusive accGyroViewData">
+          <AccGyroView />
+        </div>
+        <div className="container_item container_exclusive batteryData">
+          <BatteryView />
+        </div>
+        <div className="container_item container_exclusive lidarData">
+          <LidarView />
+        </div>
       </div>
     );
   }
 
-  // This function returns the div that we want to render
-  renderItems = () => {
-    return (
-      <div className="rover_homepage_view">
-        <div className="row">
-          <div className="rover_data_views">
-          {this.render_data_views()}
-          </div>
-          <div className="rover_data_feed">
-            {this.render_data_field()}
-          </div>
-        </div>
-      </div>
-    )
-  };
-
-  /*
-  <div className="fifth">
-    <div className="container_item container_exclusive">
-        <GpsView />
-    </div>
-  </div>
-  <div className="videocontainter">
-    <div className="container_item container_exclusive">
-      <VideoPictureView />
-    </div>  
-  </div>
-  <div className="fifth">
-    <div className="container_item container_exclusive">
-      <AccGyroView />
-    </div>
-    <div className="container_item container_exclusive">
-      <BatteryView />
-    </div>
-    <div className="container_item container_exclusive">
-      <LidarView />
-    </div>
-    </div>  
-  </div>
-</div>
-*/
+  // // This function returns the div that we want to render
+  // renderItems = () => {
+  //   return (
+  //     <div className="rover_homepage_view">
+  //       <div className="rover_data_views">
+  //       {this.render_data_views()}
+  //       </div>
+  //     </div>
+  //   )
+  // };
 
   // Returns jsx to render the item in react
   render() {
     return (
-      <div>
-        {this.renderItems()}
+      <div className="rover_homepage_view">
+        <div className="rover_data_views">
+        {this.render_data_views()}
+        </div>
       </div>
     );
   }

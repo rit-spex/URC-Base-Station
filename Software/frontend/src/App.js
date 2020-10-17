@@ -5,19 +5,26 @@ import React, { Component } from "react";
 import RoverHomepageView from './components/rover_homepage/rover_homepage_view.js';
 import ArmHomepageView from './components/arm_homepage/arm_homepage_view.js';
 import ScienceHomepageView from './components/science_homepage/science_homepage_view.js';
+import LiveDataFeedPanel from './components/live_feed/live_feed_panel.js';
 
 class App extends Component {
   // constructor
   constructor(props) {
     super(props);
     this.state = {
-      viewid: 0
+      viewid: 0,
+      showPanel: false
     };
   }
 
   // sets viewid
   setViewId(id){
-    this.setState({viewid:id})
+    this.setState({viewid: id})
+  }
+
+  // show the feed
+  toggle() {
+    this.setState({showPanel: !this.state.showPanel});
   }
 
   // returns homepage view based in viewid
@@ -37,32 +44,53 @@ class App extends Component {
   }
 
   // This function returns the div that we want to render
-  renderItems = () => {
-    return (
-      <div>
-        <div className="row">
-          <div className="navbar">
-            <button type="button" className="navbar_button" onClick={() => this.setViewId(0)}>  
-              Rover View
-            </button>
-            <button className="navbar_button" onClick={() => this.setViewId(1)}>  
-              Arm View
-            </button>
-            <button className="navbar_button" onClick={() => this.setViewId(2)}>  
-              Science View
-            </button>
-          </div>
-        </div>
-        {this.renderView()}
-      </div>
-    );
-  };
+  // renderItems = () => {
+  //   return (
+  //     <div>
+  //       <div className="row">
+  //         <div className="navbar">
+  //           <h2 className="navbar_button" onClick={() => this.setViewId(0)}>
+  //             Rover View
+  //           </h2>
+  //           <h2 className="navbar_button" onClick={() => this.setViewId(1)}>  
+  //             Arm View
+  //           </h2>
+  //           <h2 className="navbar_button" onClick={() => this.setViewId(2)}>  
+  //             Science View
+  //           </h2>
+  //           <h2 className="navbar_button" id="liveFeed" onClick={() => this.toggle()}>
+  //             Data Feed
+  //           </h2>
+  //         </div>
+  //       </div>
+  //       {this.state.showPanel && <LiveDataFeedPanel />}
+  //       {this.renderView()}
+  //     </div>
+  //   );
+  // };
 
   // Returns jsx to render the item in react
   render() {
     return (
       <div className="root">
-        {this.renderItems()}
+        <div className="row">
+          <div className="navbar">
+            <h2 className="navbar_button" onClick={() => this.setViewId(0)}>
+              Rover View
+            </h2>
+            <h2 className="navbar_button" onClick={() => this.setViewId(1)}>  
+              Arm View
+            </h2>
+            <h2 className="navbar_button" onClick={() => this.setViewId(2)}>  
+              Science View
+            </h2>
+            <h2 className="navbar_button" id="liveFeed" onClick={() => this.toggle()}>
+              Data Feed
+            </h2>
+          </div>
+        </div>
+        {this.state.showPanel && <LiveDataFeedPanel />}
+        {this.renderView()}
       </div>
     );
   }

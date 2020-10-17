@@ -84,16 +84,17 @@ class BatteryView extends React.Component {
             ctx.stroke()
             ctx.lineTo(95,30)
             ctx.stroke()
-            ctx.fillStyle = '#787878';
+            ctx.fillStyle = '#3d3d3d';
             ctx.fillRect(96, 11, 3, 19)
             ctx.stroke()
-            if(percent >= 70){
+
+            if (percent >= 70){
                 ctx.fillStyle = '#009900';
             }
-            else if(percent >= 50){
+            else if (percent >= 50){
                 ctx.fillStyle = 'yellow';
             }
-            else{
+            else {
                 ctx.fillStyle = '#ce1126';
             }
             ctx.fillRect(2,2,percent, 36);
@@ -137,19 +138,13 @@ class BatteryView extends React.Component {
         else{     
             const bat = this.buildBattery(50);      
             return <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Voltage: {latestBattery.voltage} </td>
-                            <td> Amperage: {latestBattery.amperage} </td>
-                            <td>
-                                {bat}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <span>Last Recieved: {latestBattery.date} {latestBattery.time}</span>
+                <h3>Voltage: {latestBattery.voltage}</h3>
+                <h3>Amperage: {latestBattery.amperage}</h3>
+                <div id="theBat">
+                    {bat}
                 </div>
+                <span>Last Recieved: {latestBattery.date} {latestBattery.time}</span>
+            </div>
         }
     };
     
